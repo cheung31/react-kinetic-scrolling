@@ -9,7 +9,7 @@ React component which handle scrolling by mouse drag and wheel, with kinetic eff
 - snap to grid feature
 - mouse wheel scrolling
 
-##Properties:
+## Properties:
 
 Property | Type | Description
 -------- | ------ | -----------
@@ -19,7 +19,7 @@ horizontal | bool | Vertical scrolling enabled by default. Set this property to 
 className | string | Adding custom styling for root div of the component
 trackPosition | func | Callback for tracking when Scrolling at edge positions and if it is dragging (need for disabling click handlers on items).
 
-##Methods:
+## Methods:
 
 `scrollToItem(idx)` --- Scrolls to item of passed index. Returns `false` if snap feature disabled.
 
