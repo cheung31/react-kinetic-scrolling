@@ -38,8 +38,6 @@ class Slabby extends React.Component {
             timestamp,
             ticker,
         };
-
-        this.setupEvents();
     }
 
     // Event Handlers
@@ -137,7 +135,7 @@ class Slabby extends React.Component {
             }
             // PageUp or LeftArrow or UpArrow
             if ([33, 37, 38].indexOf(e.which) >= 0) {
-                this.setState({ target: this.offset - this.dim);
+                this.setState({ target: this.offset - this.dim });
             }
             if (offset !== target) {
                 this.setState({
@@ -227,6 +225,7 @@ class Slabby extends React.Component {
     }
 
     setupEvents() {
+        console.log(this.refs);
         const view = this.refs.content;
         const onTap = this.onTap.bind(this);
         const onDrag = this.onDrag.bind(this);
@@ -244,6 +243,11 @@ class Slabby extends React.Component {
         document.addEventListener('keydown', onKeyDown);
     }
 
+    componentDidMount() {
+        console.log('component did mount');
+        this.setupEvents();
+    }
+
     render() {
         const {
             images,
@@ -252,7 +256,9 @@ class Slabby extends React.Component {
 
         return (
             <div style={style}>
-                <div class="pure-g cover" ref="content"></div>
+                <div className="pure-g cover" ref="content">
+                    {this.props.children}
+                </div>
                 <div ref="stash"></div>
             </div>
         );
