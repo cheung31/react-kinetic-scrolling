@@ -1,16 +1,27 @@
 import React from 'react';
 
+const CONTAINER_STYLE = {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    overflow: 'hidden',
+};
+
+const VIEW_STYLE = {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+};
+
 class Slabby extends React.Component {
     constructor(props) {
         super(props);
 
-        let count, images, dim, offset, center, angle, dist, shift,
-            pressed, reference, amplitude, target, velocity, timeConstant,
-            xform, frame, timestamp, ticker;
-
-        xform = 'transform';
+        let xform = 'transform';
         ['webkit', 'Moz', 'O', 'ms'].every(function (prefix) {
-            var e = prefix + 'Transform';
+            const e = `${prefix}Transform`;
             if (typeof document.body.style[e] !== 'undefined') {
                 xform = e;
                 return false;
@@ -23,20 +34,20 @@ class Slabby extends React.Component {
             images: [],
             dim: 200,
             offset: 0,
-            center,
+            center: undefined,
             angle: -60,
             dist: -150,
             shift: 10,
             pressed: false,
-            reference,
-            amplitude,
+            reference: undefined,
+            amplitude: undefined,
             target: 0,
-            velocity,
+            velocity: undefined,
             timeConstant: 250, // ms
             xform,
-            frame,
-            timestamp,
-            ticker,
+            frame: undefined,
+            timestamp: undefined,
+            ticker: undefined,
         };
     }
 
@@ -251,12 +262,12 @@ class Slabby extends React.Component {
     render() {
         const {
             images,
-            style,
+            style = {},
         } = this.props;
 
         return (
-            <div style={style}>
-                <div className="pure-g cover" ref="content">
+            <div style={{ ...CONTAINER_STYLE, ...style }}>
+                <div style={{ ...VIEW_STYLE }}className="pure-g cover" ref="content">
                     {this.props.children}
                 </div>
                 <div ref="stash"></div>
