@@ -11,9 +11,23 @@ const CONTAINER_STYLE = {
 
 const VIEW_STYLE = {
     position: 'absolute',
-    top: 0,
-    left: 0,
+    top: '50%',
+    left: '50%',
+    marginTop: '-125.5px',
+    marginLeft: '-282px',
+    width: '99999px',
 };
+
+const ITEM_STYLE = {
+    width: '612px',
+    height: '612px',
+    backgroundColor: '#33a',
+    color: '#fff',
+    font: 'bold 22px/120px sans-serif',
+    display: 'inline-block',
+    margin: '10px 5px',
+    textAlign: 'center',
+}
 
 class Slabby extends React.Component {
     constructor(props) {
@@ -268,7 +282,7 @@ class Slabby extends React.Component {
         return (
             <div style={{ ...CONTAINER_STYLE, ...style }}>
                 <div style={{ ...VIEW_STYLE }}className="pure-g cover" ref="content">
-                    {this.props.children}
+                    {this.props.children.map(child => (<div style={ITEM_STYLE}>{child}</div>))}
                 </div>
                 <div ref="stash"></div>
             </div>
