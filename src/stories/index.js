@@ -1,8 +1,8 @@
-import React from 'react'
-import { storiesOf } from '@kadira/storybook'
-import Scrolling from '../index'
+import React from 'react';
+import { storiesOf } from '@kadira/storybook';
+import Scrolling from '../index';
 import Slabby from '../slabby';
-import './styles.css'
+import './styles.css';
 
 storiesOf('Scrolling', module)
     .add('default view', () => (
@@ -34,7 +34,7 @@ storiesOf('Scrolling', module)
                 <div className="item item_vertical">10</div>
             </Scrolling>
         </div>
-    ))
+    ));
 
 storiesOf('Slabby', module)
     .add('default view', () => (
@@ -50,4 +50,4 @@ storiesOf('Slabby', module)
             <div className="item">9</div>
             <div className="item">10</div>
         </Slabby>
-    ))
+    ));

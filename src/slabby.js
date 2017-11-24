@@ -263,7 +263,7 @@ class Slabby extends React.Component {
             </div>
         );
     }
-};
+}
 
 export default Slabby;
 
